@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Segment, Image, Item, Button, Header } from 'semantic-ui-react';
+import { format } from 'date-fns';
 
 const eventImageStyle = {
     filter: 'brightness(30%)'
@@ -11,47 +12,47 @@ const eventImageTextStyle = {
     bottom: '5%',
     left: '5%',
     width: '100%',
-    height: 'auto', 
+    height: 'auto',
     color: 'white'
 };
 
 
-export default function EventDetailedHeader() {
+export default function EventDetailedHeader({ event }) {
     return (
 
-    <Segment.Group>
-    <Segment basic attached="top" style={{padding: '0'}}>
-        <Image src={`/assets/event1.jpeg`} fluid style={eventImageStyle} />
+        <Segment.Group>
+            <Segment basic attached="top" style={{ padding: '0' }}>
+                <Image src={`/assets/category/event1.jpeg`} fluid style={eventImageStyle} />
 
-        <Segment basic style={eventImageTextStyle}>
-            <Item.Group>
-                <Item>
-                    <Item.Content>
-                        <Header
-                            size="huge"
-                            content='Event Title'
-                            style={{color: 'white'}}
-                        />
-                        <p>Event Date</p>
-                        <p>
-                            Hosted by <strong>Bob</strong>
-                        </p>
-                    </Item.Content>
-                </Item>
-            </Item.Group>
-        </Segment>
-    </Segment>
+                <Segment basic style={eventImageTextStyle}>
+                    <Item.Group>
+                        <Item>
+                            <Item.Content>
+                                <Header
+                                    size="huge"
+                                    content={event.title}
+                                    style={{ color: 'white' }}
+                                />
+                                <p>{format(event.date, 'MMMM d, yyyy h:mm a')}</p>
+                                <p>
+                                    Hosted by <strong>{event.hostedBy}</strong>
+                                </p>
+                            </Item.Content>
+                        </Item>
+                    </Item.Group>
+                </Segment>
+            </Segment>
 
-    <Segment attached="bottom">
-        <Button>Cancel My Place</Button>
-        <Button color="teal">JOIN THIS EVENT</Button>
+            <Segment attached="bottom">
+                <Button>Cancel My Place</Button>
+                <Button color="teal">JOIN THIS EVENT</Button>
 
-        <Button as={Link} to={`/manage/`} color="orange" floated="right">
-            Manage Event
+                <Button as={Link} to={`/manage/${event}`} color="orange" floated="right">
+                    Manage Event
         </Button>
-    </Segment>
-    </Segment.Group>
+            </Segment>
+        </Segment.Group>
 
-)
+    )
 }
 

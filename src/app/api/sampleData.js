@@ -2,25 +2,25 @@ export const sampleData = [
   {
     id:1,
     title: 'Trip to Empire state building',
-    date: '2020-08-21',
+    date: new Date('2020-08-21'),
     category: 'culture',
     description: 'sjgjdfgdjfghjdfhgjd',
     city: 'NY USA',
     venue: 'Empire State Building, 5th Avenue, New york, NY, USA',
     hostedBy: 'bob',
-    hostPhotoURL: '/assets/user.png',
+    hostPhotoURL: '/assets/category/user.png',
 
     attendees: [
         {
             id: 'a',
             name: 'Bob',
-            photoURL: '/assets/user3.png',
+            photoURL: '/assets/category/user3.png',
 
         },
         {
             id: 'b',
             name: 'Tom',
-            photoURL: '/assets/user4.png',
+            photoURL: '/assets/category/user4.png',
  
         }
     ]
@@ -29,24 +29,24 @@ export const sampleData = [
   {
     id:2,
     title: 'Trip to Effiel Tower building',
-    date: '2020-08-22',
+    date: new Date('2020-08-22'),
     category: 'culture',
     description: 'sjgjdfgdjfghjdfhgjd',
     city: 'NY USA',
     venue: 'Effiel Tower, 5th Avenue, New york, NY, France',
     hostedBy: 'bob',
-    hostPhotoURL: '/assets/user1.png',
+    hostPhotoURL: '/assets/category/user1.png',
     attendees: [
         {
             id: 'a',
             name: 'Bob',
-            photoURL: '/assets/user3.png',
+            photoURL: '/assets/category/user3.png',
 
         },
         {
             id: 'b',
             name: 'Tom',
-            photoURL: '/assets/user4.png',
+            photoURL: '/assets/category/user4.png',
  
         }
     ]

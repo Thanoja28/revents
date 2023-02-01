@@ -5,19 +5,28 @@ import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from './app/store/configureStore';
+import { Provider } from 'react-redux';
+
+const store = configureStore();
+
+console.log(store.getState());
 
 const rootNode = document.getElementById('root');
 
 function render() {
   ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>, rootNode);
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+    , rootNode);
 }
 
 
-if(module.hot) {
-  module.hot.accept('./app/layout/App.js', function(){
+if (module.hot) {
+  module.hot.accept('./app/layout/App.js', function () {
     setTimeout(render)
   })
 }
